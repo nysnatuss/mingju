@@ -1,8 +1,8 @@
 // Variables
-var data_arr = [];
-var x1;
-var x2;
-var selmj = [];
+var data_arr = []; // All list of mingju
+var x1; // Which form
+var x2; // Which line
+var selmj = []; // Selection, 1 = selected
 var question;
 var answer;
 var limit;
@@ -10,7 +10,7 @@ var currQuestion;
 /* TODO:
 var wrongLimit = 3;
 var timeout = 60; // seconds
-var ansSide = [1,1]; // ??
+var ansSide = [1,1];
 */
 // Document ready
 $(document).ready(function() {
@@ -22,7 +22,7 @@ function mjLoop(x) {
 	var a;
 	switch (x) {
 		case 0:
-			return 'ybb';
+			return 'z0';
 			break;
 		case 1:
 			return 'z1';
@@ -70,9 +70,8 @@ function intro() {
 			}
 		}
 		limit = parseInt($("#mjNum").val());
-		$("#intro2").fadeOut("slow");
-		$("#intro").fadeOut("slow");
-		$("#qDisplay").delay(15000).css("display", "block");
+		$("#intro").css("display", "block"); //Debug
+		$("#qDisplay").css("display", "block");
 		currQuestion = 0;
 		display();
 	}
@@ -80,15 +79,14 @@ function intro() {
 
 function display() {
 	currQuestion = currQuestion + 1;
-	var x1;
 	do {
 		x1 = Math.floor(Math.random() * data_arr.length);
-	} while (selmj[x1] !== 0);
-	var x2 = Math.floor(Math.random() * data_arr[x1].length);
-	question = data_arr[0][0].replace(/ *\[[^\]]*]/, ''); // rm anything in []
-	answer = data_arr[0][0].match(/\[(.*?)\]/)[1].replace(/[，。；？,.;?]/g, ''); // rm anything other than [] and rm symbol
+	} while (selmj[x1] === 0);
+	x2 = Math.floor(Math.random() * data_arr[x1].length);
+	question = data_arr[x1][x2].replace(/ *\[[^\]]*]/, ''); // rm anything in []
+	answer = data_arr[x1][x2].match(/\[(.*?)\]/)[1].replace(/[，。；？,.;?]/g, ''); // rm anything other than [] and rm symbol
 	if (question.startsWith("，") || question.startsWith("；")) {
-		$('#after').text(question + "。");
+		$('#after').text(question);
 	} else {
 		$('#before').text(question);
 	}
@@ -132,8 +130,8 @@ function check() {
 
 // Data handling
 function dataHandling() {
-	for (var x=0;x<=1;x++) { // Change for z4,z5
-		var txtFile = 'list/' + mjLoop(x) + '.txt';
+	for (var x=0;x<=5;x++) {
+		var txtFile = 'list/z' + x + '.txt';
 		$.get(txtFile, function(data) {
 			var lines = data.split('\n');
 			data_arr.push(lines);
