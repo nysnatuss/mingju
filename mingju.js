@@ -54,6 +54,9 @@ function intro() {
 		if (document.getElementById(mjLoop(x)).checked) {
 			// If selectAll < 1, that means there are one is selected
 			selectAll = selectAll + 1;
+			selmj[x] = 1;
+		} else {
+			selmj[x] = 0;
 		}
 	}
 	if (selectAll < 1) {
@@ -62,13 +65,6 @@ function intro() {
 			   parseInt($("#mjNum").val()) > 1000) {
 		alert("请您选择正确的测验次数！");
 	} else {
-		for (var x=0; x<=5; x++) {
-			if (document.getElementById(mjLoop(x)).checked) {
-				selmj[x] = 1;
-			} else {
-				selmj[x] = 0;
-			}
-		}
 		limit = parseInt($("#mjNum").val());
 		$("#intro").css("display", "block"); //Debug
 		$("#qDisplay").css("display", "block");
