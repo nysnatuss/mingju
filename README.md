@@ -16,4 +16,3 @@ A tool/quiz for easing Malaysian secondary students who take Chinese in MingJu (
 * User given custom mingju.
 * Ask which side to be asked.
 * User get to select which mingju to be ask.
-* Create Form 4 and Form 5 mingju lists which are missing
