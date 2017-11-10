@@ -51,7 +51,7 @@ function intro() {
 	// Check for errors in input
 	var selectAll = 0;
 	for (var x=0; x<=5; x++) {
-		if (document.getElementById(mjLoop(x)).checked) {
+		if ($('#' + mjLoop(x)).is(":checked")) {
 			// If selectAll < 1, that means there are one is selected
 			selectAll = selectAll + 1;
 			selmj[x] = 1;
