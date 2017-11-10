@@ -1,0 +1,40 @@
+---
+layout: master
+title: 名句测验站
+meta: 
+includejs: /zh/stuffs/mingju/mingju.js
+includecss: /zh/stuffs/mingju/mingju.css
+lang: zh
+ref: mingju
+---
+
+<div id="intro">
+	<h2>欢迎来到PT3/SPM名句测验站！</h2>
+	<!-- TODO: Timeout; Wrong limit -->
+	<p class="headerq">请选择你所要测验的名句:</p>
+	
+	<div id="sel1">
+		<input type="checkbox" id="ybb" name="mjtype" value="ybb">
+		<label for="ybb">预备班</label>
+		<input type="checkbox" id="z1" name="mjtype" value="z1">
+		<label for="z1">中一</label>
+		<input type="checkbox" id="z2" name="mjtype" value="z2">
+		<label for="z2">中二</label>
+		<input type="checkbox" id="z3" name="mjtype" value="z3">
+		<label for="z3">中三</label>
+		<input type="checkbox" id="z4" name="mjtype" value="z4">
+		<label for="z4">中四</label>
+		<input type="checkbox" id="z5" name="mjtype" value="z5">
+		<label for="z5">中五</label>
+	</div>
+	<!-- TODO: Custom mingju, selection -->
+	
+	<p class="headerq">请选择你所要被测验的名句数量:</p>
+	<input type="number" id="mjNum" min="1" max="1000" value="10"/>
+	<button onclick="intro()" style="margin-top:9px">确认</button>
+</div>
+<div id="qDisplay" style="display:none">
+	<h1>问题 </h1><h1 id="count">1</h1><h3> - </h3><h3 id="level"></h3><br/><br/>
+	<p id="before"></p><input type="text" id="input1" value=""/><p id="after">。</p>
+	<button class="button" onclick="check()">查对</button>
+</div>
