@@ -4,12 +4,12 @@ A tool/quiz for easing Malaysian secondary students who take Chinese in MingJu (
 Demo: https://nysnatuss.github.io/mingju/
 
 # How to contribute?
-1. Clone this repo
-2. Host a server for yourself (You can do this with Python: https://stackoverflow.com/questions/7943751/what-is-the-python-3-equivalent-of-python-m-simplehttpserver)
+1. Fork and clone this repo.
+2. Host a server for yourself (You can do this with [Python](https://stackoverflow.com/questions/7943751/what-is-the-python-3-equivalent-of-python-m-simplehttpserver) or other webserver tools)
 3. Start editing!
 
 - In index.html, only edit inside the <body> tags.
-- Edit to common.css is used for styling, any edit must be given a reason.
+- common.css is for common styling and should not be edited.
 
 # TODO
 * Timeout when answering question
