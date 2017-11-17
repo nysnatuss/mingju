@@ -80,7 +80,7 @@ function randomize() {
 	} while (selmj[x1] === 0);
 	x2 = Math.floor(Math.random() * data_arr[x1].length);
 	question = data_arr[x1][x2].replace(/ *\[[^\]]*]/, ''); // rm anything in []
-	answer = data_arr[x1][x2].match(/\[(.*?)\]/)[1].replace(/[，。；？,.;?]/g, ''); // rm anything other than [] and rm symbol
+	answer = data_arr[x1][x2].match(/\[(.*?)\]/)[1].replace(/[，。；？！,.;?!]/g, ''); // rm anything other than [] and rm its symbol
 	if (question.startsWith("，") || question.startsWith("；")) {
 		$('#after').text(question);
 	} else {
@@ -111,7 +111,7 @@ function randomize() {
 
 function check() {
 	var userAns = $("#input1").val();
-	userAns = userAns.replace(/[，。；？,.;?]/g, '');
+	userAns = userAns.replace(/[，。；？！,.;?! ]/g, '');
 	if ($("#input1").val() === "" ||
 		$("#input1").val() === undefined) {
 		alert("您没有输入任何字母！");
