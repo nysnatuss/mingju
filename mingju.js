@@ -2,7 +2,7 @@
 var data_arr = []; // All list of mingju
 var x1; // Which form
 var x2; // Which line
-var selmj = []; // Selection, 1 = selected
+var selmj = []; // Selection of which mingju, 1 = selected
 var question;
 var answer;
 var limit;
@@ -47,7 +47,7 @@ function mjLoop(x) {
 }
 
 // Setup
-function intro() {
+function firstsetup() {
 	// Check for errors in input
 	var selectAll = 0;
 	for (var x=0; x<=5; x++) {
@@ -69,11 +69,11 @@ function intro() {
 		$("#intro").css("display", "block"); //Debug
 		$("#qDisplay").css("display", "block");
 		currQuestion = 0;
-		display();
+		randomize();
 	}
 }
 
-function display() {
+function randomize() {
 	currQuestion = currQuestion + 1;
 	do {
 		x1 = Math.floor(Math.random() * data_arr.length);

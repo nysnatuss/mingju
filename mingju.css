@@ -1,17 +1,83 @@
 #sel1 label {
-	font-size: 1em;
+    font-size: 1em;
 }
 
 #qDisplay * {
-	display: inline;
+    display: inline;
 }
 
 .headerq {
-	font-size: 1.25em;
-	display: block;
-	margin-bottom: 0;
+    font-size: 1.25em;
+    display: block;
+    margin-bottom: 0;
 }
 
 label {
-	font-size: 1.2em;
+    font-size: 1.2em;
+}
+
+/*
+	Copyright (c) 2017 by Lee Porter (https://codepen.io/elevaunt/pen/VvKdVa)
+	Fork of an original work by Ashley (https://codepen.io/ashleygalante/pen/nwoKh)
+*/
+
+svg {
+    width: 100px;
+    display: block;
+    margin: 40px auto 0;
+}
+
+.path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    &.circle {
+        -webkit-animation: dash .9s ease-in-out;
+        animation: dash .9s ease-in-out;
+    }
+    &.line {
+        stroke-dashoffset: 1000;
+        -webkit-animation: dash .9s .35s ease-in-out forwards;
+        animation: dash .9s .35s ease-in-out forwards;
+    }
+    &.check {
+        stroke-dashoffset: -100;
+        -webkit-animation: dash-check .9s .35s ease-in-out forwards;
+        animation: dash-check .9s .35s ease-in-out forwards;
+    }
+}
+
+@-webkit-keyframes dash {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-webkit-keyframes dash-check {
+    0% {
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dashoffset: 900;
+    }
+}
+
+@keyframes dash-check {
+    0% {
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dashoffset: 900;
+    }
 }
