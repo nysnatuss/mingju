@@ -38,35 +38,42 @@
 		<button class="navy-button" onclick="firstsetup()" style="margin-top:9px">确认</button>
 	</div>
 	<div id="qDisplay" style="display:none">
-		<h1>问题 </h1>
-		<h1 id="count">1</h1>
-		<h3> - </h3>
-		<h3 id="level"></h3>
+		<div id="qNumDisplay">
+			<h1>问题 </h1>
+			<h1 id="count">1</h1>
+			<h3> - </h3>
+			<h3 id="level"></h3>
+		</div>
 		<br/>
 		<br/>
-		<p id="before"></p>
-		<input type="text" id="input1" value="" />
-		<p id="after"></p>
-		<button class="navy-button" onclick="check()">查对</button>
+		<div id="inputDisplay">
+			<p id="before"></p>
+			<input type="text" id="input1" value="" />
+			<p id="after"></p>
+		</div>
+		<br />
+		<div id="bottombar">
+			<button class="navy-button" id="checkButton" onclick="check()">查对</button>
+			<!--
+				Copyright (c) 2017 by Lee Porter (https://codepen.io/elevaunt/pen/VvKdVa)
+				Fork of an original work by Ashley (https://codepen.io/ashleygalante/pen/nwoKh)
+			-->
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" id="check" style="display:none">
+				<circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"
+				/>
+				<polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10"
+				 points="100.2,40.2 51.5,88.8 29.8,67.5 " />
+			</svg>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" id="cross" style="display:none">
+				<circle class="path circle" fill="none" stroke="#D06079" stroke-width="10" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"
+				/>
+				<line class="path line" fill="none" stroke="#D06079" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" x1="34.4"
+				 y1="37.9" x2="95.8" y2="92.3" />
+				<line class="path line" fill="none" stroke="#D06079" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" x1="95.8"
+				 y1="38" x2="34.4" y2="92.2" />
+			</svg>
+		</div>
 	</div>
-	<!--
-		Copyright (c) 2017 by Lee Porter (https://codepen.io/elevaunt/pen/VvKdVa)
-		Fork of an original work by Ashley (https://codepen.io/ashleygalante/pen/nwoKh)
-	-->
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" id="check" style="display:none">
-		<circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"
-		/>
-		<polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10"
-		 points="100.2,40.2 51.5,88.8 29.8,67.5 " />
-	</svg>
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" id="cross" style="display:none">
-		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"
-		/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4"
-		 y1="37.9" x2="95.8" y2="92.3" />
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8"
-		 y1="38" x2="34.4" y2="92.2" />
-	</svg>
-	
+
 </body>
 <html/>

@@ -1,17 +1,25 @@
 // Variables
 var data_arr = []; // All list of mingju
+// Selected
 var x1; // Which form
 var x2; // Which line
 var selmj = []; // Selection of which mingju, 1 = selected
+// Question and anwser
 var question;
 var answer;
+// Settings
 var limit;
+var wrongLimit = 0; // 0 = no limit
+// Current settings
 var currQuestion;
-/* TODO:
-var wrongLimit = 3;
-var timeout = 60; // seconds
+var currWrong = 0;
+
+/* TODO var */
+var customMJ;
+var timeout = 60; // in seconds
 var ansSide = [1,1];
-*/
+/* End TODO */
+
 // Document ready
 $(document).ready(function() {
 	dataHandling();
@@ -73,6 +81,7 @@ function firstsetup() {
 	}
 }
 
+// Randomize a question
 function randomize() {
 	currQuestion = currQuestion + 1;
 	do {
@@ -107,8 +116,10 @@ function randomize() {
 			$('#level').text("中五");
 			break;
 	}
+	console.log(x1 + "," + x2 + "," + answer); //Debug
 }
 
+// Check the answer
 function check() {
 	var userAns = $("#input1").val();
 	userAns = userAns.replace(/[，。；？！,.;?! ]/g, '');
@@ -116,11 +127,11 @@ function check() {
 		$("#input1").val() === undefined) {
 		alert("您没有输入任何字母！");
 	} else if (userAns == answer) {
-		// TODO: Beautify
-		alert("您答对了！");
+		$("#check").css("display", "inline");
 	} else {
-		// TODO: Beautify
-		alert("您答错了！");
+		if (currWrong < wrongLimit || wrongLimit === 0) {
+			$("#cross").css("display", "inline");
+		}
 	}
 }
 
