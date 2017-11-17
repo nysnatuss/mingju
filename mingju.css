@@ -16,34 +16,36 @@ label {
     font-size: 1.2em;
 }
 
+
 /*
 	Copyright (c) 2017 by Lee Porter (https://codepen.io/elevaunt/pen/VvKdVa)
 	Fork of an original work by Ashley (https://codepen.io/ashleygalante/pen/nwoKh)
 */
 
 svg {
-    width: 100px;
-    display: block;
-    margin: 40px auto 0;
+    width: 30px;
 }
 
 .path {
     stroke-dasharray: 1000;
     stroke-dashoffset: 0;
-    &.circle {
-        -webkit-animation: dash .9s ease-in-out;
-        animation: dash .9s ease-in-out;
-    }
-    &.line {
-        stroke-dashoffset: 1000;
-        -webkit-animation: dash .9s .35s ease-in-out forwards;
-        animation: dash .9s .35s ease-in-out forwards;
-    }
-    &.check {
-        stroke-dashoffset: -100;
-        -webkit-animation: dash-check .9s .35s ease-in-out forwards;
-        animation: dash-check .9s .35s ease-in-out forwards;
-    }
+}
+
+.path.circle {
+    -webkit-animation: dash .9s ease-in-out;
+    animation: dash .9s ease-in-out;
+}
+
+.path.line {
+    stroke-dashoffset: 1000;
+    -webkit-animation: dash .9s .35s ease-in-out forwards;
+    animation: dash .9s .35s ease-in-out forwards;
+}
+
+.path.check {
+    stroke-dashoffset: -100;
+    -webkit-animation: dash-check .9s .35s ease-in-out forwards;
+    animation: dash-check .9s .35s ease-in-out forwards;
 }
 
 @-webkit-keyframes dash {
