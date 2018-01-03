@@ -9,7 +9,7 @@ var question;
 var answer;
 // Settings
 var limit;
-var wrongLimit = 0; // 0 = no limit
+var wrongLimit = 2; // 0 = no limit
 // Current settings
 var currQuestion;
 var currWrong = 0;
@@ -74,7 +74,7 @@ function firstsetup() {
 		alert("请您选择正确的测验次数！");
 	} else {
 		limit = parseInt($("#mjNum").val());
-		$("#intro").css("display", "block"); //Debug
+		$("#intro").css("display", "none"); //Debug
 		$("#qDisplay").css("display", "block");
 		currQuestion = 0;
 		randomize();
@@ -83,40 +83,49 @@ function firstsetup() {
 
 // Randomize a question
 function randomize() {
-	currQuestion = currQuestion + 1;
-	do {
-		x1 = Math.floor(Math.random() * data_arr.length);
-	} while (selmj[x1] === 0);
-	x2 = Math.floor(Math.random() * data_arr[x1].length);
-	question = data_arr[x1][x2].replace(/ *\[[^\]]*]/, ''); // rm anything in []
-	answer = data_arr[x1][x2].match(/\[(.*?)\]/)[1].replace(/[，。；？！,.;?!]/g, ''); // rm anything other than [] and rm its symbol
-	if (question.startsWith("，") || question.startsWith("；")) {
-		$('#after').text(question);
+	if (currQuestion < limit) {
+		$("input[type=text], textarea").val(""); // Clear form
+		currQuestion = currQuestion + 1;
+		do {
+			x1 = Math.floor(Math.random() * data_arr.length);
+		} while (selmj[x1] === 0);
+		x2 = Math.floor(Math.random() * data_arr[x1].length);
+		question = data_arr[x1][x2].replace(/ *\[[^\]]*]/, ''); // rm anything in []
+		answer = data_arr[x1][x2].match(/\[(.*?)\]/)[1].replace(/[，。；？！,.;?!]/g, ''); // rm anything other than [] and rm its symbol
+		if (question.startsWith("，") || question.startsWith("；")) {
+			$('#after').text(question);
+			$('#before').text("");
+		} else {
+			$('#before').text(question);
+			$('#after').text("");
+		}
+		$('#count').text(currQuestion);
+		switch (x1) {
+			case 0:
+				$('#level').text("预备班");
+				break;
+			case 1:
+				$('#level').text("中一");
+				break;
+			case 2:
+				$('#level').text("中二");
+				break;
+			case 3:
+				$('#level').text("中三");
+				break;
+			case 4:
+				$('#level').text("中四");
+				break;
+			case 5:
+				$('#level').text("中五");
+				break;
+		}
+		console.log(x1 + "," + x2 + "," + answer); //Debug
 	} else {
-		$('#before').text(question);
+		alert("Done!");
+		$("#qDisplay").css("display", "none");
+		$("#intro").css("display", "block");
 	}
-	$('#count').text(currQuestion);
-	switch (x1) {
-		case 0:
-			$('#level').text("预备班");
-			break;
-		case 1:
-			$('#level').text("中一");
-			break;
-		case 2:
-			$('#level').text("中二");
-			break;
-		case 3:
-			$('#level').text("中三");
-			break;
-		case 4:
-			$('#level').text("中四");
-			break;
-		case 5:
-			$('#level').text("中五");
-			break;
-	}
-	console.log(x1 + "," + x2 + "," + answer); //Debug
 }
 
 // Check the answer
@@ -127,11 +136,13 @@ function check() {
 		$("#input1").val() === undefined) {
 		alert("您没有输入任何字母！");
 	} else if (userAns == answer) {
-		$("#check").css("display", "inline");
+		alert("Correct");
+		randomize();
+	} else if (currWrong < wrongLimit || wrongLimit === 0) {
+		if (wrongLimit !== 0) currWrong = currWrong + 1;
+		alert("Wrong");
 	} else {
-		if (currWrong < wrongLimit || wrongLimit === 0) {
-			$("#cross").css("display", "inline");
-		}
+		alert("What?");
 	}
 }
 
