@@ -1,7 +1,7 @@
 # mingju (PT3/SPM名句测验站)
 A tool/quiz for easing Malaysian secondary students who take Chinese in MingJu (名句精华). (Still in construction)
 
-Demo: https://nysnatuss.github.io/mingju/
+Demo: https://nyssss.github.io/mingju/
 
 # How to contribute?
 1. Fork and clone this repo.
